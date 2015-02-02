@@ -1,0 +1,21 @@
+CREATE EXTENSION IF NOT EXISTS template_fdw;
+CREATE SERVER template FOREIGN DATA WRAPPER template_fdw;
+CREATE FOREIGN TABLE foo(a int, b int) SERVER template;
+-- should fail
+INSERT INTO foo VALUES(10,20);
+ERROR:  cannot insert into to table "public.foo"
+DETAIL:  Table is template.
+HINT:  Create temp table by statement "CREATE TEMP TABLE foo(LIKE public.foo INCLUDING ALL);"
+SELECT * FROM foo;
+ERROR:  cannot read from table "public.foo"
+DETAIL:  Table is template.
+HINT:  Create temp table by statement "CREATE TEMP TABLE foo(LIKE public.foo INCLUDING ALL);"
+-- should work
+CREATE TEMP TABLE foo(LIKE foo INCLUDING ALL);
+INSERT INTO foo VALUES(10,20);
+SELECT * FROM foo;
+ a  | b  
+----+----
+ 10 | 20
+(1 row)
+

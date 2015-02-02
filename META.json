@@ -1,0 +1,43 @@
+{
+   "name": "template_fdw",
+   "abstract": "a foreign data wrapper for template storage",
+   "description": "The template storage doesn't allow any DML or SELECT operation, but it allow a CREATE TABLE (LIKE)",
+   "version": "0.0.1",
+   "maintainer": "Pavel STEHULE <pavel.stehule@gmail.com>",
+   "license": "bsd",
+   "provides": {
+      "template_fdw": {
+         "abstract": "a foreign data wrapper for template storage",
+         "file": "sql/template_fdw.sql",
+         "docfile": "README.md",
+         "version": "0.0.1"
+      }
+   },
+   "prereqs": {
+      "runtime": {
+         "requires": {
+            "PostgreSQL": "9.2.0",
+        }
+      }
+   },
+   "resources": {
+      "bugtracker": {
+         "web": "https://github.com/okbob/template_fdw/issues/"
+      },
+      "repository": {
+        "url":  "git://github.com/okbob/template_fdw.git",
+        "web":  "https://github.com/okbob/template_fdw/",
+        "type": "git"
+      }
+   },
+   "generated_by": "David E. Wheeler",
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   },
+   "tags": [
+      "foreign data wrapper",
+      "template"
+      "development"
+   ]
+}

@@ -1,0 +1,15 @@
+CREATE EXTENSION IF NOT EXISTS template_fdw;
+
+CREATE SERVER template FOREIGN DATA WRAPPER template_fdw;
+
+CREATE FOREIGN TABLE foo(a int, b int) SERVER template;
+
+-- should fail
+INSERT INTO foo VALUES(10,20);
+SELECT * FROM foo;
+
+-- should work
+CREATE TEMP TABLE foo(LIKE foo INCLUDING ALL);
+INSERT INTO foo VALUES(10,20);
+SELECT * FROM foo;
+

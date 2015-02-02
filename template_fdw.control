@@ -1,0 +1,5 @@
+# template_fdw extension
+comment = 'a foreign data wrapper for template storage'
+default_version = '0.0'
+module_pathname = '$libdir/template_fdw'
+relocatable = true
