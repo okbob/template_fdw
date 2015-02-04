@@ -16,7 +16,7 @@
    "prereqs": {
       "runtime": {
          "requires": {
-            "PostgreSQL": "9.2.0",
+            "PostgreSQL": "9.2.0"
         }
       }
    },
@@ -35,9 +35,10 @@
       "version": "1.0.0",
       "url": "http://pgxn.org/meta/spec.txt"
    },
+  "release_status": "testing",
    "tags": [
       "foreign data wrapper",
-      "template"
+      "template",
       "development"
    ]
 }
